@@ -1,0 +1,45 @@
+body {
+  background: #222222;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+.main-section {
+  padding-bottom: 4rem;
+}
+
+.instructions {
+  color: #757575;
+}
+
+/*
+** Video Styles
+*/
+
+.playerGroup #title {
+  margin: 0.67em 0 0;
+  font-size:1.25rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.playerGroup #main {
+  width: 100%;
+}
+
+.playerGroup input[type="file"] {
+  margin: 0.67em 0 0;
+  font-size: 1.25rem;
+}
+
+.playerGroup .fullwidth-local {
+  margin: 0 -0.9375rem;
+}
+.playerGroup video {
+  background:transparent no-repeat url('../images/fa-upload.png');
+  background-repeat:no-repeat;
+  background-position: center center;
+}

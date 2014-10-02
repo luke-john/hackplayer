@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="vendor/foundation-5.4.0/css/foundation.css">
+    <link rel="stylesheet" href="vendor/foundation-5.4.0/css/normalize.css">
+    <link rel="stylesheet" href="styles/app.css">
+  </head>
+  <body>
+    <div class="main-section">
+      <div class="row">
+        <div class="small-12 columns">
+          <div class="playerGroup">
+            <div class="row">
+              <div class="small-12 medium-8 columns">
+                <h1 id="title">
+                  Chrome OS Hack Player
+                  <small>
+                    Player must be located in Downloads/Videos folder to work
+                  </small>
+                </h1>
+              </div>
+              <div class="small-12 medium-4 columns">
+                // not all videos appear for accept=video/*
+                // also show partially downloaded files
+                <input id="fileSelect" type="file" accept=".avi,.mkv,.crdownload,video/*" />
+              </div>
+            </div>
+            <br />
+            <div class="fullwidth-local">
+              <video id="main" controls src="">
+              </video>
+            </div>
+            <br />
+            <div class="row instructions">
+              <div class="small-6 columns">
+                <div class="row">
+                  <div class="medium-6 columns">     
+                    <dl>
+                      <dt>
+                        Enter Fullscreen
+                      </dt>
+                      <dd>
+                        Alt + Up Arrow
+                      </dd>
+                      <dt>
+                        Exit Fullscreen
+                      </dt>
+                      <dd>
+                        Alt + Down Arrow || Esc
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="medium-6 columns">
+                    <dl>
+                      <dt>
+                        Toggle Play/Pause
+                      </dt>
+                      <dd>
+                        Spacebar
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div class="small-6 columns">
+                <div class="row">
+                  <div class="medium-6 columns">  
+                    <dl>
+                      <dt>
+                        Increase Speed
+                      </dt>
+                      <dd>
+                        Right Arrow
+                      </dd>
+                      <dt>
+                        Decrease Speed
+                      </dt>
+                      <dd>
+                        Left Arrow
+                      </dd>
+                    </dl>
+                  </div>
+                  <div class="medium-6 columns">
+                    <dl>
+                      <dt>
+                        Skip Forward
+                      </dt>
+                      <dd>
+                        Alt + Right Arrow
+                      </dd>
+                      <dt>
+                        Skip Backward
+                      </dt>
+                      <dd>
+                        Alt + Left Arrow
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+      var player = document.getElementById('main');
+      var header = document.getElementById('title');
+      var fileSelect = document.getElementById('fileSelect');
+      var wHref = window.location.pathname;
+      
+      var downloadsHref = wHref
+        .substring(0, wHref.length + (
+          wHref.lastIndexOf('/') - wHref.length
+        ));
+      downloadsHref = downloadsHref
+        .substring(0, downloadsHref.length + (
+          downloadsHref.lastIndexOf('/') - downloadsHref.length + 1
+        ));
+    </script>
+    <script src="javascript/hackplayer.js"></script>
+  </body>
+</html>

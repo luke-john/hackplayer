@@ -49,7 +49,7 @@
   }
   
   function videoSize(e, key) {
-    if (!e.altKey) {
+    if (!e.shiftKey ) {
       return false;
     }
     switch (key) {
@@ -72,7 +72,7 @@
     
     switch (key) {
       case 37: // left
-        if (e.altKey) {
+        if (e.shiftKey) {
           player.currentTime = player.currentTime - 5;
           break;
         }
@@ -82,7 +82,7 @@
         }
         break;
       case 39: // right
-        if (e.altKey) {
+        if (e.shiftKey) {
           player.currentTime = player.currentTime + 5;
           break;
         }

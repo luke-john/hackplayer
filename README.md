@@ -10,6 +10,12 @@ Installation for Chrome OS.
 
 ## Usage Notes
 
+Open player.html in the hackplayer folder in Downloads.
+
+Further instructions are on the page that loads.
+
+### Usage Notes
+
 The videoplayer folder must be saved in your Downloads or Videos folder to work.
 
 This is because chrome does not give a files full path and obscures the selected file path.

@@ -19,8 +19,6 @@
                 </h1>
               </div>
               <div class="small-12 medium-4 columns">
-                // not all videos appear for accept=video/*
-                // also show partially downloaded files
                 <input id="fileSelect" type="file" accept=".avi,.mkv,.crdownload,video/*" />
               </div>
             </div>
@@ -39,13 +37,13 @@
                         Enter Fullscreen
                       </dt>
                       <dd>
-                        Alt + Up Arrow
+                        Shift + Up Arrow
                       </dd>
                       <dt>
                         Exit Fullscreen
                       </dt>
                       <dd>
-                        Alt + Down Arrow || Esc
+                        Shift + Down Arrow || Esc
                       </dd>
                     </dl>
                   </div>
@@ -85,13 +83,13 @@
                         Skip Forward
                       </dt>
                       <dd>
-                        Alt + Right Arrow
+                        Shift + Right Arrow
                       </dd>
                       <dt>
                         Skip Backward
                       </dt>
                       <dd>
-                        Alt + Left Arrow
+                        Shift + Left Arrow
                       </dd>
                     </dl>
                   </div>
@@ -111,7 +109,7 @@
         .substring(0, wHref.length + (
           wHref.lastIndexOf('/') - wHref.length
         ));
-      downloadsHref = downloadsHref
+      downloadsHref = window.location.origin + downloadsHref
         .substring(0, downloadsHref.length + (
           downloadsHref.lastIndexOf('/') - downloadsHref.length + 1
         ));

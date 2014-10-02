@@ -2,6 +2,12 @@
 
 ## Installation
 
+Installation for Chrome OS.
+
+* Download ZIP from github.
+* Open Zip (either double click or right click and select open).
+* Drag hackplayer folder to Downloads.
+
 ## Usage Notes
 
 The videoplayer folder must be saved in your Downloads or Videos folder to work.

@@ -4,13 +4,12 @@
 
 Installation for Chrome OS.
 
-* Download ZIP from github.
-* Open Zip (either double click or right click and select open).
-* Drag hackplayer folder to Downloads.
+* Download player from GitHub
+  * https://raw.githubusercontent.com/luke-john/hackplayer/master/dist/hackplayer.html
 
-## Usage Notes
+## Usage
 
-Open player.html in the hackplayer folder in Downloads.
+Open hackplayer.html.
 
 Further instructions are on the page that loads.
 

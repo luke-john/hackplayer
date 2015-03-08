@@ -4,8 +4,9 @@
 
 Installation for Chrome OS.
 
-* Download player from GitHub
-  * https://raw.githubusercontent.com/luke-john/hackplayer/master/dist/hackplayer.html
+Download player from GitHub by right clicking on the below link and selecting "save link as".
+
+https://raw.githubusercontent.com/luke-john/hackplayer/master/dist/hackplayer.html
 
 ## Usage
 

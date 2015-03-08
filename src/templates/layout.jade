@@ -1,0 +1,35 @@
+doctype html
+
+html
+
+  head
+    title Test
+
+    // Viewport mobile tag for sensible mobile support
+    meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1")
+    
+    // smoosh
+    link(rel="stylesheet", href="/vendor/bootstrap/3.3.2/css/bootstrap-theme.min.css")
+    link(rel="stylesheet", href="/vendor/bootstrap/3.3.2/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/styles/app.css")
+    // endsmoosh
+    
+  body
+    
+    block body
+
+    script(type="text/javascript").
+    
+      var player = document.getElementById('main');
+      var header = document.getElementById('title');
+      var fileSelect = document.getElementById('fileSelect');
+      var wHref = window.location.pathname;
+      
+      var downloadsHref = window.location.origin + wHref
+        .substring(0, wHref.length + (
+          wHref.lastIndexOf('/') - wHref.length + 1
+        ));
+        
+    // smoosh
+    script(src="/javascript/hackplayer.js")
+    // endsmoosh

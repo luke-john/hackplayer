@@ -1,0 +1,43 @@
+extends layout
+
+
+block body
+  
+  .container
+    .row
+      .col-sm-8
+        h1#title Chrome OS Hack Player 
+          small Player must be located in Downloads/Videos folder to work
+      .col-sm-4
+        br
+        input#fileSelect(type="file", accept=".avi,.mkv,.crdownload,video/*")
+    br
+  
+    video#main(controls)
+      
+  
+    mixin testMixin(feature, command)
+      p
+        strong= feature
+        br
+        | #{command}
+    br
+    br
+    .row.instructions.text-center
+      .col-xs-6
+        .row
+          .col-sm-6
+            mixin testMixin("Enter Fullscreen", "Shift + Up Arrow")
+            mixin testMixin("Exit Fullscreen", "Shift + Down Arrow || Esc")
+
+          .col-sm-6
+            mixin testMixin("Toggle Play/Pause", "Spacebar")
+      .col-xs-6
+        .row
+          .col-sm-6
+            mixin testMixin("Increase Speed", "Right Arrow")
+            mixin testMixin("Decrease Speed", "Left Arrow")
+          .col-sm-6
+            mixin testMixin("Skip Forward", "Shift + Right Arrow")
+            mixin testMixin("Skip Backward", "Shift + Left Arrow")
+    

@@ -23,6 +23,7 @@
       toggleVideo();
       return false;
     }
+    
     if ([37,39].indexOf(key) !== -1) {
       videoSpeed(e, key);
     }
@@ -92,7 +93,7 @@
         }
         break;
     }
-    if (newSpeed && newSpeed == 1) {
+    if (e.shiftKey || newSpeed == 1) {
       showControls = false;
     }
   }
@@ -105,10 +106,43 @@
   
   ChangeVideo = function(e) {
     player.src = fileSelect.value.replace(/C:\\fakepath\\/gi, downloadsHref);
+    crdownloadPath = player.src;
+    updateCrdownload();
     UpdateTitle();
     fileSelect.blur();
   }
   
   fileSelect.addEventListener("change", ChangeVideo, false);
+  
+  var crdownloadTimer;
+  var crdownloadPath;
+  var videoLength;
+  
+  updateCrdownload = function() {
+    if ('crdownload' == player.src.substr(player.src.length - 10))  {
+      crdownloadTimer = player.currentTime + 1;
+      setTimeout(updateCrdownload, 500);
+      player.addEventListener("error", videoError);
+    }
+  }
+  
+  var downloadCompleteHint;
+  var downloadCompleteHintTime;
+  
+  videoError = function(data) {
+    if ( (new Date() - downloadCompleteHint) < 100 ) {
+      player.src = crdownloadPath.substring(0, crdownloadPath.length - 11);
+      player.currentTime = downloadCompleteHintTime - 1;
+      player.removeEventListener('error', videoError)
+    }
+    else {
+      player.src = crdownloadPath;
+      player.currentTime = crdownloadTimer - 1;
+    }
+    downloadCompleteHintTime = crdownloadTimer;
+    crdownloadTimer = 0;
+    player.play();
+    downloadCompleteHint = new Date();
+  }
   
 }());

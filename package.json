@@ -1,0 +1,40 @@
+{
+  "name": "browser-hackplayer",
+  "version": "1.0.0",
+  "description": "Chrome OS Local Video Player",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukejohnosmahi/hackplayer.git"
+  },
+  "keywords": [
+    "chromeos",
+    "video",
+    "player"
+  ],
+  "author": "luke-john",
+  "license": "gpl2",
+  "bugs": {
+    "url": "https://github.com/lukejohnosmahi/hackplayer/issues"
+  },
+  "homepage": "https://github.com/lukejohnosmahi/hackplayer",
+  "dependencies": {
+    "video.js": "^4.12.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-embedlr": "^0.5.2",
+    "gulp-jade": "^1.0.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-open": "^0.3.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-smoosher": "0.0.7",
+    "require-dir": "^0.1.0"
+  }
+}

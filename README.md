@@ -16,8 +16,10 @@ Further instructions are on the page that loads.
 
 ### Usage Notes
 
-The videoplayer folder must be saved in your Downloads or Videos folder to work.
+The player must be saved in the same folder as videos you want to watch to work.
 
 This is because chrome does not give a files full path and obscures the selected file path.
 
 This "app" gets around this limitation by building the path from the page url.
+
+I recommend leaving it in your Downloads folder.

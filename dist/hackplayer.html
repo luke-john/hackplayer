@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Test</title><!-- Viewport mobile tag for sensible mobile support--><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><style>/*!
+<!DOCTYPE html><html><head><title>hackplayer</title><!-- Viewport mobile tag for sensible mobile support--><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><style>/*!
  * Bootstrap v3.3.2 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -54,58 +54,59 @@ var downloadsHref = window.location.origin + wHref
     wHref.lastIndexOf('/') - wHref.length + 1
   ));
   </script><script>(function() {
-  
-  player.addEventListener("click", videoClick, true);
-  player.addEventListener("ended", endVideo, true);
-  
+
+  player.addEventListener('click', videoClick, true);
+  player.addEventListener('ended', endVideo, true);
+
   function endVideo() {
     player.src = '';
   }
-  
+
   function videoClick() {
     if (!player.src || player.src.indexOf(window.location.pathname) !== -1) {
       fileSelect.click()
     }
   }
-  
+
   // register button listeners
   document.onkeydown = buttonPress;
-  
-  function buttonPress (e) {
+
+  function buttonPress(e) {
     e = e || window.event;
     var key = e.keyCode;
     if (key == '32') {
       toggleVideo();
       return false;
     }
-    
-    if ([37,39].indexOf(key) !== -1) {
+
+    if ([37, 39].indexOf(key) !== -1) {
       videoSpeed(e, key);
     }
-    if ([38,40].indexOf(key) !== -1) {
-      videoSize(e, key); 
+    if ([38, 40].indexOf(key) !== -1) {
+      videoSize(e, key);
     }
   }
-  
+
   var showControls = false;
+
   function keepControls() {
     if (showControls) {
-      player.setAttribute("controls", "controls")
+      player.setAttribute('controls', 'controls')
       player.addEventListener('timeupdate', keepControls, false)
     }
   }
-  
+
   function toggleVideo(e) {
     showControls = false;
     player.playbackRate = 1;
-    if ( player.paused) {
+    if (player.paused) {
       return player.play();
     }
     player.pause();
   }
-  
+
   function videoSize(e, key) {
-    if (!e.shiftKey ) {
+    if (!e.shiftKey) {
       return false;
     }
     switch (key) {
@@ -117,15 +118,14 @@ var downloadsHref = window.location.origin + wHref
         break;
     }
   }
-  
+
   function videoSpeed(e, key) {
-    var speeds = [0.5,1,2,4,6,10]
+    var speeds = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 4, 6, 10];
     var speed = speeds.indexOf(player.playbackRate);
-    var newSpeed;
-    
+
     showControls = true;
     keepControls();
-    
+
     switch (key) {
       case 37: // left
         if (e.shiftKey) {
@@ -133,8 +133,7 @@ var downloadsHref = window.location.origin + wHref
           break;
         }
         if (speed > 0) {
-          newSpeed = speed - 1;
-          player.playbackRate = speeds[newSpeed];
+          player.playbackRate = speeds[speed - 1];
         }
         break;
       case 39: // right
@@ -142,63 +141,29 @@ var downloadsHref = window.location.origin + wHref
           player.currentTime = player.currentTime + 5;
           break;
         }
-        if (speed < 5) {
-          newSpeed = speed + 1;
-          player.playbackRate = speeds[newSpeed];
+        if (speed < 14) {
+          player.playbackRate = speeds[speed + 1];
         }
         break;
     }
-    if (e.shiftKey || newSpeed == 1) {
+    if (e.shiftKey || newSpeed == 3) {
       showControls = false;
     }
   }
-  
+
   UpdateTitle = function() {
     var title = player.src.substring(downloadsHref.length);
     header.innerText = title;
     document.title = title;
   }
-  
+
   ChangeVideo = function(e) {
     player.src = fileSelect.value.replace(/C:\\fakepath\\/gi, downloadsHref);
-    crdownloadPath = player.src;
-    updateCrdownload();
     UpdateTitle();
     fileSelect.blur();
   }
-  
-  fileSelect.addEventListener("change", ChangeVideo, false);
-  
-  var crdownloadTimer;
-  var crdownloadPath;
-  var videoLength;
-  
-  updateCrdownload = function() {
-    if ('crdownload' == player.src.substr(player.src.length - 10))  {
-      crdownloadTimer = player.currentTime + 1;
-      setTimeout(updateCrdownload, 500);
-      player.addEventListener("error", videoError);
-    }
-  }
-  
-  var downloadCompleteHint;
-  var downloadCompleteHintTime;
-  
-  videoError = function(data) {
-    if ( (new Date() - downloadCompleteHint) < 100 ) {
-      player.src = crdownloadPath.substring(0, crdownloadPath.length - 11);
-      player.currentTime = downloadCompleteHintTime - 1;
-      player.removeEventListener('error', videoError)
-    }
-    else {
-      player.src = crdownloadPath;
-      player.currentTime = crdownloadTimer - 1;
-    }
-    downloadCompleteHintTime = crdownloadTimer;
-    crdownloadTimer = 0;
-    player.play();
-    downloadCompleteHint = new Date();
-  }
-  
+
+  fileSelect.addEventListener('change', ChangeVideo, false);
+
 }());
 </script></body></html>
